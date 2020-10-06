@@ -68,3 +68,36 @@ $ terraform apply
 
 Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 ```
+
+## Data source
+
+```bash
+cat <mygithublogin>.tf
+data "github_user" "me" {
+  name = "<mygithublogin>"
+}
+```
+
+```bash
+cat output.tf
+output "gh_user_me" {
+  value = data.github_user.me
+}
+
+output "gh_user_me_name" {
+  value = data.github_user.me.name
+}
+```
+
+```bash
+$ terraform apply
+
+  ....
+  ....
+  ....
+  ....
+  ]
+  "username" = "bartlomiejdanek"
+}
+gh_user_me_name = Bartłomiej Danek
+```
