@@ -202,13 +202,6 @@ resource "github_repository" "renamed_tf_modules" {
 
 ```bash
 $ terraform apply
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> rename repository
-=======
->>>>>>> rename repository on gh
 Error: Reference to undeclared resource
 
   on branch.tf line 6, in resource "github_branch" "dummy":
@@ -231,14 +224,6 @@ the root module.
 
 ```bash
 $ terraform apply
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> rename repository
-=======
->>>>>>> rename repository on gh
-data.github_user.me: Refreshing state...
 github_repository.tf_modules: Refreshing state... [id=tf_modules]
 github_branch.dummy: Refreshing state... [id=tf_modules:dummy]
 github_repository_file.gitignore: Refreshing state... [id=tf_modules/.gitignore]
@@ -312,10 +297,6 @@ Do you want to perform these actions?
 
   Enter a value:
 ```
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> rename repository on gh
 
 ```bash
 $ terraform refresh
@@ -495,8 +476,49 @@ github_branch.dummy: Creation complete after 2s [id=tf_module:dummy]
 github_repository_file.gitignore: Creating...
 github_repository_file.gitignore: Creation complete after 3s [id=tf_module/.gitignore]
 ```
-<<<<<<< HEAD
-=======
->>>>>>> rename repository
-=======
->>>>>>> rename repository on gh
+
+## Terraform Cloud
+
+* [app.terraform.io](app.terraform.io)
+* create an account (for commercial use - enable 2FA)
+* create an organization (organization name has to be unique globally)
+  * "CLI-driven" workflow
+  * workspace name: "github-repositories"
+* `$ terraform login`, name the token and paste it in command line <ENTER>
+* change backend configuration
+
+```
+terraform {
+  backend "remote" {
+    organization = "my-unique-name"
+
+    workspaces {
+      name = "github-repositories"
+    }
+  }
+}
+```
+
+* `terraform init`
+* workspace settings:
+  * execution mode: *local*
+* `terraform plan`
+* `terraform apply`
+
+
+### Remote apply
+
+* workspace settings:
+  * execution mode: *remote*
+* terraform version: 0.12.29
+* settings
+  * version control
+  * connect to version control
+  * version control workflow
+  * "GitHub"
+  * *select repository*
+  * update VCS settings
+* "Configure Variables"
+  * Environment variables
+    * `GITHUB_TOKEN`, sensitive [x]
+    * save
