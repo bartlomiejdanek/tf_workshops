@@ -186,6 +186,8 @@ resource "github_repository_file" "gitignore" {
 }
 ```
 
+> output is missing
+
 ## Rename repository
 
 ```bash
@@ -201,9 +203,12 @@ resource "github_repository" "renamed_tf_modules" {
 ```bash
 $ terraform apply
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> rename repository
+=======
+>>>>>>> rename repository on gh
 Error: Reference to undeclared resource
 
   on branch.tf line 6, in resource "github_branch" "dummy":
@@ -227,9 +232,12 @@ the root module.
 ```bash
 $ terraform apply
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> rename repository
+=======
+>>>>>>> rename repository on gh
 data.github_user.me: Refreshing state...
 github_repository.tf_modules: Refreshing state... [id=tf_modules]
 github_branch.dummy: Refreshing state... [id=tf_modules:dummy]
@@ -305,6 +313,9 @@ Do you want to perform these actions?
   Enter a value:
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> rename repository on gh
 
 ```bash
 $ terraform refresh
@@ -484,5 +495,8 @@ github_branch.dummy: Creation complete after 2s [id=tf_module:dummy]
 github_repository_file.gitignore: Creating...
 github_repository_file.gitignore: Creation complete after 3s [id=tf_module/.gitignore]
 ```
+<<<<<<< HEAD
 =======
 >>>>>>> rename repository
+=======
+>>>>>>> rename repository on gh
