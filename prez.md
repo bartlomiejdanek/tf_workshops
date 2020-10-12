@@ -532,3 +532,10 @@ resource "github_membership" "membership_for_user_x" {
 
 https://github.com/bartlomiejdanek/tf_workshops/tree/master
 
+---
+
+https://github.com/bartlomiejdanek/tf_workshops/tree/1-data_resource#data-source
+https://github.com/bartlomiejdanek/tf_workshops/tree/2-create_repository#create-repository
+https://github.com/bartlomiejdanek/tf_workshops/tree/3-rename_repository#rename-repository
+https://github.com/bartlomiejdanek/tf_workshops/tree/4-rename_repository_gh#rename-repository
+https://github.com/bartlomiejdanek/tf_workshops/tree/5-terraform_cloud#terraform-cloud
